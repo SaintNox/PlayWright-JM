@@ -1,0 +1,4 @@
+npm init playwright@latest - Comando que trae todos los archivos de node para playwright en su ultima version
+
+npm standar
+
