@@ -1,0 +1,46 @@
+npm init playwright@latest - Comando que trae todos los archivos de node para playwright en su ultima version
+
+npm standar
+
+npx playwright test
+
+Elements Anatomy: 
+Element type - 
+Properties: type, id, class - 
+Value: text, name, form
+
+
+___XPATH NO RECOMENDADO___ ya que los elementos del DOM pueden cambiar
+Xpath: 
+   Elem   prop  Val
+    |      |     |
+//input[@type='text']
+
+
+Absolute path: es literalmente la ruta donde se encuentra el elemento > </html/head/body/div> PARA NADA RECOMENDADO
+Relative path: ruta arbitraria que busca los elementos sin importar la profundidad del arbol del DOM
+
+
+Css selector:
+input.form (by class) //formas cortas basicas para encontrar elementos con css
+input#name (by id)
+
+LOCATORS--
+getByPlaceholder:
+<input type="email" placeholder="name@example.com">
+getByAltText:
+<img alt='playwright logo'>
+getByRole
+
+
+Comando para revisar la version de playwright: 
+npm outdated <@playwright/test>
+npm install -D @playwright/test@latest
+npm install -D @playwright/test@1.54.1
+RUTA DONDE SE GUARDAN LOS NAVEGADORES: C:\Users\irvin\AppData\Local\ms-playwright
+npx playwright install
+
+#SIEMPRE ANTES DE HACER CAMBIOS EN LOS NAVEGADORES Y EN ACTUALIZACIONES, CREAR UNA NUEVA RAMA#
+
+POM-Page-Object-Model: Separar la logica de interaccion con la pagina en una clase especifica de lo que estamos interactuando
+
