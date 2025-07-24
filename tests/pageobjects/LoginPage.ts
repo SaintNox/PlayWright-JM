@@ -1,8 +1,6 @@
 import { expect } from "@playwright/test"
 import { Locator, Page } from "playwright-core"
 
-
-
 export class LoginPage { 
 
     private readonly usernameTextbox: Locator
@@ -35,7 +33,7 @@ export class LoginPage {
         await this.clickLoginButton()
     }
 
-    async checkSuccessfullLogin() {
+    async checkSuccessfullLogin() { // assetion de que se inicio sesion correctamente esperando que el icono del carrito de compras sea visible
     await expect(this.shoppingCartIcon).toBeVisible()
     }
 }

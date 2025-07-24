@@ -46,3 +46,9 @@ test('test1', async ({page}) => {
     await login.loginWithCredentials('standard_user', 'secret_sauce')
     await login.checkSuccessfullLogin()
 })
+
+
+test('navigate', async ({page}) => {
+    await page.goto(process.env.URL)
+    await page.pause()
+})

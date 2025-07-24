@@ -4,6 +4,8 @@ npm standar
 
 npx playwright test
 
+npm i dotenv --save-dev
+
 Elements Anatomy: 
 Element type - 
 Properties: type, id, class - 
