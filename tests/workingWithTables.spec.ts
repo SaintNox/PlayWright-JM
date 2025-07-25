@@ -25,6 +25,8 @@ test('test with tables', async ({page}) => {
     }*/
     const countryWherePeopleSpeakPortuguese = countries.filter(country => country.primaryLanguage === 'Portuguese')
     console.log('countryWherePeopleSpeakPortuguese:', countryWherePeopleSpeakPortuguese)
+
+    // await page.screenshot({path: 'screenshots/tables.png', fullPage: true}) // Ejemplo de una captura de pantalla
 })
 
 

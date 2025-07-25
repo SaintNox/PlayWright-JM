@@ -46,3 +46,9 @@ npx playwright install
 
 POM-Page-Object-Model: Separar la logica de interaccion con la pagina en una clase especifica de lo que estamos interactuando
 
+npx playwright test saucedemo3.spec.ts -g "purchase an item"//comando para ejecutar un test especifico
+
+npx playwright test saucedemo3.spec.ts -g "purchase an item" --repeat-each 5 //comando para ejecutar un test especifico pero n numero de veces
+
+
+

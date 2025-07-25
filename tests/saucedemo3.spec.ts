@@ -38,10 +38,13 @@ test('Purchase an item', async ({page}) => {
 
 })
 
-test('test1', async ({page}) => {
+test('test1', async ({page}, testInfo) => {
 
     await page.goto('https://www.saucedemo.com/v1/')
-
+    await testInfo.attach('login',{
+        body: await page.screenshot(),
+        contentType: 'image/png',//forma de adjuntar una captura de pantalla al reporte
+    })
     const login = new LoginPage(page)
     await login.loginWithCredentials('standard_user', 'secret_sauce')
     await login.checkSuccessfullLogin()
