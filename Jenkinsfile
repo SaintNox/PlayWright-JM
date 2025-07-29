@@ -8,6 +8,11 @@ pipeline {
                 cleanWs()
             }
         }
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
         stage('e2e-tests') {
             steps {
                 sh 'npm install'
