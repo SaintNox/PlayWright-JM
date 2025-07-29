@@ -68,3 +68,4 @@ C:\Users\irvin\Downloads>
 
 Ahora en la linea de comandos va el siguiente comando
 --docker build --tag docker-in-docker-jenkins . // Se crea una imagen con el nombre docker-in-docker-jenkins en el directorio actual (.)
+C:\Users\irvin\Downloads>docker run --rm --group-add 0 -v "//var/run/docker.sock:/var/run/docker.sock" -p 8080:8080 -v jenkins_home:/var/jenkins_home --name jenkins docker-in-docker-jenkins//este comando lo que hace es crear el contenedor
