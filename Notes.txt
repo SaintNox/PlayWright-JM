@@ -52,3 +52,19 @@ npx playwright test saucedemo3.spec.ts -g "purchase an item" --repeat-each 5 //c
 
 
 
+---------DOCKER------------
+Creamos un archivo si extension llamado Dockerfile que tendra lo siguiente:
+
+//
+FROM jenkins/jenkins:lts-jdk17
+
+USER root 
+RUN curl -sSL https://get.docker.com/ | sh
+//
+
+En el directorio en donde se encuentra ese archivo
+
+C:\Users\irvin\Downloads>
+
+Ahora en la linea de comandos va el siguiente comando
+--docker build --tag docker-in-docker-jenkins . // Se crea una imagen con el nombre docker-in-docker-jenkins en el directorio actual (.)
