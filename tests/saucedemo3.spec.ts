@@ -4,9 +4,7 @@ import { LoginPage } from './pageobjects/LoginPage'
 test('Purchase an item', async ({page}) => {
     
     await page.goto('https://www.saucedemo.com/v1/')
-    const login = new LoginPage(page)
-    await login.loginWithCredentials('standard_user', 'secret_sauce')
-    await login.checkSuccessfullLogin()
+
 
     const itemContainer = await page.locator('#inventory_container .inventory_item').all() //metodo all siempre devuelve una promesa que da el arreglo
 
@@ -54,4 +52,55 @@ test('test1', async ({page}, testInfo) => {
 test('navigate', async ({page}) => {
     await page.goto(process.env.URL)
     await page.pause()
+})
+
+
+test('Purchase an item4', async ({page}) => {
+    
+    await page.goto('https://www.saucedemo.com/v1/')
+
+
+    const itemContainer = await page.locator('#inventory_container .inventory_item').all() //metodo all siempre devuelve una promesa que da el arreglo
+    for(let container of itemContainer){
+        console.log(await container.allTextContents())
+    }
+})
+
+test('Login and add two items to cart', async ({page}) => {
+    // Navigate to the site
+    await page.goto('https://www.saucedemo.com/v1/')
+    
+    // Login with credentials
+    await page.getByRole('textbox', { name: 'Username' }).fill('standard_user')
+    await page.getByRole('textbox', { name: 'Password' }).fill('secret_sauce')
+    await page.getByRole('button', { name: 'LOGIN' }).click()
+    
+    // Wait for inventory page to load
+    await page.waitForSelector('#inventory_container')
+    
+    // Get all available items
+    const itemContainer = await page.locator('#inventory_container .inventory_item').all()
+    
+    // Add first item to cart
+    const firstItem = itemContainer[0]
+    await firstItem.getByRole('button', {name: 'ADD TO CART'}).click()
+    console.log('First item added to cart')
+    
+    // Add second item to cart  
+    const secondItem = itemContainer[1]
+    await secondItem.getByRole('button', {name: 'ADD TO CART'}).click()
+    console.log('Second item added to cart')
+    
+    // Verify cart has 2 items
+    const cartBadge = page.locator('.shopping_cart_badge')
+    await expect(cartBadge).toHaveText('2')
+    
+    // Optional: Click cart to view items
+    await page.locator('a.shopping_cart_link').click()
+    
+    // Verify both items are in the cart
+    const cartItems = await page.locator('.cart_item').all()
+    expect(cartItems.length).toBe(2)
+    
+    console.log('Successfully added 2 items to cart!')
 })

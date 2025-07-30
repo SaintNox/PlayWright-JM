@@ -35,11 +35,22 @@ export default defineConfig({
   },
 
   /* Configure projects for major browsers */
-  projects: [
+  projects: [ //Antes de ejecutar los proyectos en chrome, firefox, etc. se ejecuta el proyecto de setup
+
+    {
+      name: 'setup', 
+      testMatch: /.*\.setup\.ts/,
+    },
+
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { 
+        ...devices['Desktop Chrome'],
+        storageState: "playwright/.auth/user.json" // <- Dentro de 'use'
+      },
+      dependencies: ['setup']
     },
+
 
     // {
     //   name: 'firefox',
